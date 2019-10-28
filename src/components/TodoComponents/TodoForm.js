@@ -24,7 +24,7 @@ export default class TodoForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className='form-container'>
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type='text'
@@ -32,11 +32,12 @@ export default class TodoForm extends Component {
                         id='todo'
                         value={this.state.newTodo}
                         onChange={this.handleInputChange}
+                        placeholder='...todo'
                     />
                     <button className='add-btn'>Add Todo:</button>
                     <button 
                         className='clear-btn' 
-                        onClick={this.props.clearCompleted}>Clear Completed:</button>
+                        onClick={this.props.handleClearTodos}>Clear Completed:</button>
                 </form>
                 
             </div>

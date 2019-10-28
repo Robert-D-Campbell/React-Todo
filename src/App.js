@@ -38,18 +38,29 @@ class App extends React.Component {
       })
     });
   };
+
+  clearCompleted = e => {
+      e.preventDefault();
+      let todos = this.state.todos.filter(todo => !todo.completed);
+      this.setState({ todos })
+
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className='wrapper'>
         <h1> React Todo List! </h1>
         <TodoList 
           todos={this.state.todos} 
           toggleCompleted={this.toggleCompleted}
         />
-        <TodoForm addTodo={this.addTodo} />
+        <TodoForm 
+          value={this.state.todo} 
+          handleClearTodos={this.clearCompleted} 
+          addTodo={this.addTodo} 
+        />
       </div>
     );
   }
